@@ -29,9 +29,12 @@ export interface Certification {
   status: Localized
 }
 
-export interface ProjectPlaceholder {
+export type DemoProjectId = 'logistics-analytics' | 'car-marketplace'
+
+export interface ProjectEntry {
   title: Localized
   teaser: Localized
+  demoId?: DemoProjectId
 }
 
 export const ui = {
@@ -43,7 +46,17 @@ export const ui = {
     contact: { en: 'Contact', es: 'Contacto' } as Localized,
   },
   downloadCv: { en: 'Download CV', es: 'Descargar CV' } as Localized,
-  comingSoon: { en: 'Coming soon', es: 'Próximamente' } as Localized,
+  tryDemo: { en: 'Try it live', es: 'Probar en vivo' } as Localized,
+  demoInputPlaceholder: { en: 'Ask a question…', es: 'Hacé una pregunta…' } as Localized,
+  demoRemaining: { en: 'messages left', es: 'mensajes restantes' } as Localized,
+  demoSending: { en: 'Thinking…', es: 'Pensando…' } as Localized,
+  demoEndTitle: { en: "That's the demo!", es: '¡Eso fue la demo!' } as Localized,
+  demoEndCta: { en: 'Want the full version? Get in touch', es: '¿Querés la versión completa? Escribime' } as Localized,
+  demoError: { en: 'Something went wrong. Try again.', es: 'Algo salió mal. Intentá de nuevo.' } as Localized,
+  demoDailyLimit: {
+    en: "Today's demo budget is used up — try again tomorrow.",
+    es: 'El presupuesto de demos de hoy se agotó — probá mañana.',
+  } as Localized,
   certifications: { en: 'Certifications', es: 'Certificaciones' } as Localized,
   coursework: { en: 'Coursework', es: 'Contenidos' } as Localized,
   footerRights: { en: 'All rights reserved.', es: 'Todos los derechos reservados.' } as Localized,
@@ -248,26 +261,28 @@ export const certifications: Certification[] = [
   { name: 'Google AI', issuer: 'Coursera', status: { en: 'In Progress', es: 'En curso' } },
 ]
 
-export const projects: ProjectPlaceholder[] = [
+export const projects: ProjectEntry[] = [
   {
-    title: { en: 'Last-Mile Delivery AI Assistant', es: 'Asistente de IA para Última Milla' },
+    title: { en: 'Conversational Logistics Analytics', es: 'Analítica Logística Conversacional' },
     teaser: {
-      en: 'A conversational AI assistant built for a last-mile delivery company to streamline operations and support.',
-      es: 'Un asistente de IA conversacional construido para una empresa de última milla, para optimizar operaciones y soporte.',
+      en: "A secure, chat-based analytics assistant for logistics operations — ask a plain-language question and get a data-grounded answer, with every query automatically scoped to what you're authorized to see.",
+      es: 'Un asistente de analítica conversacional y seguro para operaciones logísticas — hacé una pregunta en lenguaje natural y obtené una respuesta basada en datos, con cada consulta automáticamente limitada a lo que estás autorizado a ver.',
     },
+    demoId: 'logistics-analytics',
   },
   {
-    title: { en: 'AI-First Car Marketplace', es: 'Marketplace de Autos AI-First' },
+    title: { en: 'AI-First Used-Car Marketplace', es: 'Marketplace de Autos Usados AI-First' },
     teaser: {
-      en: 'RAG-powered CRM agent, document processing, and knowledge assistant built for an AI-first car marketplace.',
-      es: 'Agente de CRM potenciado por RAG, procesamiento de documentos, y asistente de conocimiento construidos para un marketplace de autos AI-first.',
+      en: 'A used-car marketplace with AI woven through every surface: a buyer concierge for search, AI-generated listings and pricing for sellers, and AI-summarized leads for operations.',
+      es: 'Un marketplace de autos usados con IA integrada en cada superficie: un concierge conversacional para compradores, publicaciones y valuaciones generadas por IA para vendedores, y leads resumidos por IA para el equipo de operaciones.',
     },
+    demoId: 'car-marketplace',
   },
   {
-    title: { en: 'More AI Agent Projects', es: 'Más Proyectos de Agentes de IA' },
+    title: { en: 'Neighborhood Digital Magazine Platform', es: 'Plataforma de Revista Digital de Barrio' },
     teaser: {
-      en: 'Additional agentic workflows and AI tools — details coming soon.',
-      es: 'Más flujos de trabajo agénticos y herramientas de IA — detalles próximamente.',
+      en: 'A hyper-local platform connecting residents, businesses, and community organizations — local ads, neighborhood news, and staff-moderated content, with AI-powered moderation and listing generation as a natural next step.',
+      es: 'Una plataforma hiperlocal que conecta vecinos, comercios y organizaciones comunitarias — anuncios locales, noticias de barrio y contenido moderado por el equipo, con moderación y generación de publicaciones por IA como un paso natural a futuro.',
     },
   },
 ]
