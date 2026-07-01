@@ -309,6 +309,86 @@ ul, ol {
   padding: 0.2rem 0.6rem;
 }
 
+.project-demo {
+  margin-top: 1rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-demo__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.project-demo__bubble {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  max-width: 85%;
+}
+
+.project-demo__bubble--user {
+  align-self: flex-end;
+  background: var(--accent-dim);
+  color: #fff;
+}
+
+.project-demo__bubble--assistant {
+  align-self: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.project-demo__bubble--pending {
+  align-self: flex-start;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.project-demo__input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-demo__input-row input {
+  flex: 1;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  color: var(--text);
+}
+
+.project-demo__counter {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.project-demo__error {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #f87171;
+}
+
+.project-demo__end-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
 /* Education */
 
 .education {
