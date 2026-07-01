@@ -298,15 +298,8 @@ ul, ol {
   font-size: 0.95rem;
 }
 
-.project-card__badge {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-  border: 1px solid var(--accent-dim);
-  border-radius: 999px;
-  padding: 0.2rem 0.6rem;
+.project-card__cta {
+  margin-top: 0.75rem;
 }
 
 .project-demo {
