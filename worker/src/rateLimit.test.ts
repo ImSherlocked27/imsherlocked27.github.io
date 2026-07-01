@@ -46,6 +46,12 @@ describe('checkAllowance', () => {
     const result = await checkAllowance({ kv, sessionId: 's2', ip: '5.6.7.8', projectId: 'car-marketplace', now: BASE.now })
     expect(result).toEqual({ ok: false, reason: 'daily-cap' })
   })
+
+  it('blocks based on the IP counter even with a brand-new session id (defeats localStorage-clear bypass)', async () => {
+    const kv = createFakeKV({ 'ip:1.2.3.4:project:logistics-analytics': String(SESSION_CAP) })
+    const result = await checkAllowance({ kv, sessionId: 'brand-new-session', ip: '1.2.3.4', projectId: 'logistics-analytics', now: BASE.now })
+    expect(result).toEqual({ ok: false, reason: 'session-cap' })
+  })
 })
 
 describe('recordUsage', () => {
@@ -64,5 +70,11 @@ describe('recordUsage', () => {
     await recordUsage({ kv, ...BASE })
     expect(await kv.get('session:s1:ip:1.2.3.4:project:logistics-analytics')).toBe('3')
     expect(await kv.get('daily-budget:2026-07-01')).toBe('11')
+  })
+
+  it('increments the IP counter alongside the session counter', async () => {
+    const kv = createFakeKV()
+    await recordUsage({ kv, ...BASE })
+    expect(await kv.get('ip:1.2.3.4:project:logistics-analytics')).toBe('1')
   })
 })
