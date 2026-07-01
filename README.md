@@ -30,3 +30,18 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+## Project demos
+
+Two "Try it live" chat demos in the Projects section call a Cloudflare
+Worker backend — see `worker/README.md` for how to deploy it.
+
+For local development, copy `.env.example` to `.env` and point
+`VITE_DEMO_API_BASE` at your worker (`http://localhost:8787` when running
+`npm run dev` inside `worker/`, or your deployed `*.workers.dev` URL).
+
+For the production build (GitHub Actions), add a repository variable named
+`VITE_DEMO_API_BASE` under **Settings → Secrets and variables → Actions →
+Variables**, set to your deployed worker's URL. It's not secret — just the
+public API base — but keeping it as a variable (not hardcoded) means you
+can point the site at a different worker without a code change.
