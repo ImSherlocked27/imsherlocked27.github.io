@@ -39,6 +39,13 @@ describe('checkAllowance', () => {
     const result = await checkAllowance({ kv, ...BASE })
     expect(result).toEqual({ ok: false, reason: 'daily-cap' })
   })
+
+  it('shares the daily budget across different projects', async () => {
+    const kv = createFakeKV({ 'daily-budget:2026-07-01': String(DAILY_CAP - 1) })
+    await recordUsage({ kv, sessionId: 's1', ip: '1.2.3.4', projectId: 'logistics-analytics', now: BASE.now })
+    const result = await checkAllowance({ kv, sessionId: 's2', ip: '5.6.7.8', projectId: 'car-marketplace', now: BASE.now })
+    expect(result).toEqual({ ok: false, reason: 'daily-cap' })
+  })
 })
 
 describe('recordUsage', () => {
