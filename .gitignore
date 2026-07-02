@@ -34,3 +34,4 @@ dist-ssr
 worker/node_modules
 worker/.wrangler
 worker/.dev.vars
+fable_handoff.md

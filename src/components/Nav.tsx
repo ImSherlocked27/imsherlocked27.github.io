@@ -2,9 +2,9 @@ import { useLanguage } from '../context/LanguageContext'
 import { ui } from '../data/content'
 
 const links = [
+  { id: 'projects', label: ui.nav.projects },
   { id: 'experience', label: ui.nav.experience },
   { id: 'skills', label: ui.nav.skills },
-  { id: 'projects', label: ui.nav.projects },
   { id: 'education', label: ui.nav.education },
   { id: 'contact', label: ui.nav.contact },
 ]
