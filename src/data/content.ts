@@ -129,7 +129,7 @@ export const howIWork: HowIWorkItem[] = [
     title: { en: 'Cost & latency budgets', es: 'Presupuestos de costo y latencia' },
     body: {
       en: 'LLM features get budgets like any other resource: token spend, latency targets, capped demos. Treating cost as a design input — not an afterthought — is what made a 30%+ inference cost reduction possible.',
-      es: 'Las features con LLMs tienen presupuestos como cualquier otro recurso: gasto de tokens, objetivos de latencia, demos con límite. Tratar el costo como una decisión de diseño — no como una idea tardía — es lo que hizo posible reducir más de un 30% el costo de inferencia.',
+      es: 'Las funcionalidades con LLMs tienen presupuestos como cualquier otro recurso: gasto de tokens, objetivos de latencia, demos con límite. Tratar el costo como una decisión de diseño — no como una idea tardía — es lo que hizo posible reducir más de un 30% el costo de inferencia.',
     },
   },
 ]
@@ -240,11 +240,11 @@ export const experience: ExperienceEntry[] = [
       },
       {
         en: 'Developed conversational flows, prompts, and RAG pipelines for domain-specific use cases.',
-        es: 'Desarrollé flujos conversacionales, prompts, y pipelines RAG para casos de uso específicos de dominio.',
+        es: 'Desarrollé flujos conversacionales, prompts y arquitecturas RAG para casos de uso específicos de dominio.',
       },
       {
         en: 'Created evaluation frameworks tracking model accuracy, latency, and output quality in production.',
-        es: 'Creé frameworks de evaluación para monitorear precisión del modelo, latencia, y calidad de salida en producción.',
+        es: 'Creé marcos de evaluación para monitorear precisión del modelo, latencia y calidad de salida en producción.',
       },
       {
         en: 'Reduced inference costs and latency **30%+** through optimization of prompts and API integration patterns.',
@@ -268,11 +268,11 @@ export const experience: ExperienceEntry[] = [
       },
       {
         en: 'Designed ETL pipelines with PySpark for large-scale data extraction and feature generation.',
-        es: 'Diseñé pipelines ETL con PySpark para extracción de datos a gran escala y generación de features.',
+        es: 'Diseñé pipelines ETL con PySpark para extracción de datos a gran escala y generación de variables.',
       },
       {
         en: 'Containerized services and set up CI/CD for automated model deployments with post-deploy observability.',
-        es: 'Containericé servicios y configuré CI/CD para despliegues automatizados de modelos con observabilidad post-despliegue.',
+        es: 'Empaqueté servicios en contenedores y configuré CI/CD para despliegues automatizados de modelos con observabilidad post-despliegue.',
       },
     ],
   },
@@ -292,11 +292,11 @@ export const experience: ExperienceEntry[] = [
       },
       {
         en: 'Collaborated with cross-functional teams — product, engineering, and business stakeholders — to identify where data could drive the most value.',
-        es: 'Colaboré con equipos multidisciplinarios — producto, ingeniería, y stakeholders de negocio — para identificar dónde los datos podían generar más valor.',
+        es: 'Colaboré con equipos multidisciplinarios — producto, ingeniería y partes interesadas del negocio — para identificar dónde los datos podían generar más valor.',
       },
       {
         en: 'Supported senior data scientists in model development and evaluation, progressively taking ownership of end-to-end project delivery.',
-        es: 'Apoyé a data scientists senior en el desarrollo y evaluación de modelos, tomando progresivamente ownership de la entrega end-to-end de proyectos.',
+        es: 'Apoyé a data scientists sénior en el desarrollo y evaluación de modelos, asumiendo progresivamente la responsabilidad de la entrega de punta a punta de proyectos.',
       },
       {
         en: 'Wrote technical documentation and project reports for client-facing deliverables.',
@@ -320,7 +320,7 @@ export const experience: ExperienceEntry[] = [
       },
       {
         en: 'Automated reporting pipelines in Python that cut manual analysis time by **~40%**, freeing the team to focus on insights instead of spreadsheets.',
-        es: 'Automaticé pipelines de reporting en Python que redujeron el tiempo de análisis manual en un **~40%**, liberando al equipo para enfocarse en insights en vez de planillas.',
+        es: 'Automaticé pipelines de generación de informes en Python que redujeron el tiempo de análisis manual en un **~40%**, liberando al equipo para enfocarse en hallazgos en vez de planillas.',
       },
       {
         en: 'Created dashboards and visualizations to present findings to both technical and non-technical stakeholders.',
@@ -413,18 +413,18 @@ export const projects: ProjectEntry[] = [
         es: 'Construí tres superficies de IA de punta a punta. Un concierge para compradores responde búsquedas en lenguaje natural con recomendaciones fundamentadas, combinando retrieval sobre el inventario en vivo con acceso controlado a las APIs y bases de datos de la empresa. Los vendedores reciben texto de publicación y guía de precios asistidos por IA. Operaciones recibe los leads ya resumidos y clasificados. Cada cambio de comportamiento pasa por una suite de evaluación de más de 20 escenarios antes de salir.',
       },
       results: {
-        en: 'All three surfaces run in production today. The eval suite catches behavior regressions before deploy instead of after a user complaint — the same discipline that later made a major latency fix measurable (see the post-mortem below).',
-        es: 'Las tres superficies están hoy en producción. La suite de evaluación detecta regresiones de comportamiento antes del deploy y no después de la queja de un usuario — la misma disciplina que después hizo medible una mejora grande de latencia (ver el post-mortem más abajo).',
+        en: 'All three surfaces run in production today. The eval suite catches behavior regressions before deploy instead of after a user complaint — the same discipline that later made a major latency fix measurable (see the latency case study below).',
+        es: 'Las tres superficies están hoy en producción. La suite de evaluación detecta regresiones de comportamiento antes del deploy y no después de la queja de un usuario — la misma disciplina que después hizo medible una mejora grande de latencia (ver el caso de la latencia más abajo).',
       },
       stack: ['Python', 'RAG', 'LLM agents', 'REST APIs', 'SQL', 'Azure DevOps'],
     },
   },
   {
     title: {
-      en: 'Cutting Agent Latency in Half — a Production Post-Mortem',
-      es: 'Reducir la Latencia del Agente a la Mitad — un Post-Mortem de Producción',
+      en: 'Cutting Agent Latency in Half',
+      es: 'Reducir la Latencia del Agente a la Mitad',
     },
-    tag: { en: 'Post-mortem', es: 'Post-mortem' },
+    tag: { en: 'Latency optimization', es: 'Optimización de latencia' },
     teaser: {
       en: 'A production agent felt slow, and nobody could say why. I built a stage-by-stage latency benchmark, traced the pipeline, and found a duplicate tool call hiding in every single turn.',
       es: 'Un agente en producción se sentía lento, y nadie podía decir por qué. Construí un benchmark de latencia etapa por etapa, tracé el pipeline, y encontré una llamada a herramienta duplicada escondida en cada turno.',
