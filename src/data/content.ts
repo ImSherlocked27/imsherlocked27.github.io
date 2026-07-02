@@ -41,11 +41,26 @@ export interface CaseStudyMetric {
   label: Localized
 }
 
+export interface CaseStudyFigureBar {
+  label: Localized
+  /** Value relative to the baseline bar (baseline = 1). */
+  value: number
+  emphasis?: boolean
+}
+
+export interface CaseStudyFigure {
+  bars: CaseStudyFigureBar[]
+  annotation?: string
+  caption: Localized
+  ariaLabel: Localized
+}
+
 export interface CaseStudy {
   metrics: CaseStudyMetric[]
   problem: Localized
   approach: Localized
   results: Localized
+  figure?: CaseStudyFigure
   stack: string[]
 }
 
@@ -400,6 +415,21 @@ export const projects: ProjectEntry[] = [
       results: {
         en: 'Removing the duplicate call cut mean latency by 51.8%. The benchmark stayed in the pipeline as a permanent regression guard: a slow deploy now fails loudly instead of degrading quietly.',
         es: 'Eliminar la llamada duplicada redujo la latencia media un 51,8%. El benchmark quedó en el pipeline como guardia de regresión permanente: un deploy lento ahora falla de forma visible en vez de degradarse en silencio.',
+      },
+      figure: {
+        bars: [
+          { label: { en: 'Before', es: 'Antes' }, value: 1 },
+          { label: { en: 'After', es: 'Después' }, value: 0.482, emphasis: true },
+        ],
+        annotation: '−51.8%',
+        caption: {
+          en: 'Mean end-to-end latency relative to the pre-fix baseline, measured by the stage-by-stage benchmark.',
+          es: 'Latencia media end-to-end relativa a la línea base previa al fix, medida por el benchmark etapa por etapa.',
+        },
+        ariaLabel: {
+          en: 'Bar chart: mean agent latency drops 51.8% after removing the duplicate tool call',
+          es: 'Gráfico de barras: la latencia media del agente cae 51,8% tras eliminar la llamada duplicada',
+        },
       },
       stack: ['Python', 'Tracing & observability', 'Latency benchmarking', 'LLM agents'],
     },

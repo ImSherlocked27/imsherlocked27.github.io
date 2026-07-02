@@ -428,6 +428,40 @@ ul, ol {
   line-height: 1.4;
 }
 
+.case-figure {
+  margin: 1.25rem 0 0;
+  max-width: 480px;
+}
+
+.case-figure__chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-figure__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--text-muted);
+}
+
+.case-figure__value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--text);
+}
+
+.case-figure__value--accent {
+  fill: var(--accent);
+  font-weight: 700;
+}
+
+.case-figure__caption {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
 .case-study__stack {
   list-style: none;
   padding: 0;

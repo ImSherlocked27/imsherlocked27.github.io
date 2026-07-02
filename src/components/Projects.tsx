@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext'
 import type { Language } from '../context/LanguageContext'
 import { projects, ui } from '../data/content'
 import type { CaseStudy, ProjectEntry } from '../data/content'
+import { CaseStudyFigureChart } from './CaseStudyFigureChart'
 import { ProjectDemoChat } from './ProjectDemoChat'
 
 function CaseStudyPanel({ caseStudy, language }: { caseStudy: CaseStudy; language: Language }) {
@@ -22,6 +23,7 @@ function CaseStudyPanel({ caseStudy, language }: { caseStudy: CaseStudy; languag
       <p>{caseStudy.approach[language]}</p>
       <h4>{ui.caseResults[language]}</h4>
       <p>{caseStudy.results[language]}</p>
+      {caseStudy.figure && <CaseStudyFigureChart figure={caseStudy.figure} language={language} />}
       <h4>{ui.caseStack[language]}</h4>
       <ul className="case-study__stack">
         {caseStudy.stack.map((item) => (
