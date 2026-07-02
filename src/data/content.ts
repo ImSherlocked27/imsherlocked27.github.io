@@ -202,8 +202,8 @@ export const experience: ExperienceEntry[] = [
         es: 'Creé frameworks de evaluación para monitorear precisión del modelo, latencia, y calidad de salida en producción.',
       },
       {
-        en: 'Reduced inference costs and latency 30%+ through optimization of prompts and API integration patterns.',
-        es: 'Reduje costos de inferencia y latencia en más de un 30% optimizando prompts y patrones de integración de APIs.',
+        en: 'Reduced inference costs and latency **30%+** through optimization of prompts and API integration patterns.',
+        es: 'Reduje costos de inferencia y latencia en **más de un 30%** optimizando prompts y patrones de integración de APIs.',
       },
       {
         en: 'Led small engineering teams (3–5 people), handling code review, architecture decisions, and sprint planning.',
@@ -270,12 +270,12 @@ export const experience: ExperienceEntry[] = [
         es: 'Analicé bases de datos de la empresa para apoyar la estrategia de marketing, identificando patrones en el desempeño de campañas y el comportamiento de clientes.',
       },
       {
-        en: 'Built A/B testing frameworks and ran statistical validation (hypothesis testing, significance analysis), contributing to ~20% uplift in redemption rates.',
-        es: 'Construí frameworks de A/B testing y corrí validaciones estadísticas (test de hipótesis, análisis de significancia), contribuyendo a un incremento de ~20% en tasas de canje.',
+        en: 'Built A/B testing frameworks and ran statistical validation (hypothesis testing, significance analysis), contributing to **~20% uplift** in redemption rates.',
+        es: 'Construí frameworks de A/B testing y corrí validaciones estadísticas (test de hipótesis, análisis de significancia), contribuyendo a un **incremento de ~20%** en tasas de canje.',
       },
       {
-        en: 'Automated reporting pipelines in Python that cut manual analysis time by ~40%, freeing the team to focus on insights instead of spreadsheets.',
-        es: 'Automaticé pipelines de reporting en Python que redujeron el tiempo de análisis manual en ~40%, liberando al equipo para enfocarse en insights en vez de planillas.',
+        en: 'Automated reporting pipelines in Python that cut manual analysis time by **~40%**, freeing the team to focus on insights instead of spreadsheets.',
+        es: 'Automaticé pipelines de reporting en Python que redujeron el tiempo de análisis manual en un **~40%**, liberando al equipo para enfocarse en insights en vez de planillas.',
       },
       {
         en: 'Created dashboards and visualizations to present findings to both technical and non-technical stakeholders.',

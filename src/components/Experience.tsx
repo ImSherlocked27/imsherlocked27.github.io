@@ -1,5 +1,22 @@
 import { useLanguage } from '../context/LanguageContext'
 import { experience, ui } from '../data/content'
+import { parseMetricSegments } from '../utils/metricText'
+
+function BulletText({ text }: { text: string }) {
+  return (
+    <>
+      {parseMetricSegments(text).map((segment, index) =>
+        segment.metric ? (
+          <strong key={index} className="metric">
+            {segment.text}
+          </strong>
+        ) : (
+          segment.text
+        ),
+      )}
+    </>
+  )
+}
 
 export function Experience() {
   const { language } = useLanguage()
@@ -19,7 +36,9 @@ export function Experience() {
             </p>
             <ul className="timeline__bullets">
               {entry.bullets.map((bullet, index) => (
-                <li key={index}>{bullet[language]}</li>
+                <li key={index}>
+                  <BulletText text={bullet[language]} />
+                </li>
               ))}
             </ul>
           </li>

@@ -273,6 +273,12 @@ ul, ol {
   margin-top: 0.4rem;
 }
 
+.metric {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent);
+}
+
 /* Skills */
 
 .skills {
