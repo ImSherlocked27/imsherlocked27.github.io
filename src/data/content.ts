@@ -73,6 +73,7 @@ export const ui = {
   caseApproach: { en: 'What I built', es: 'Qué construí' } as Localized,
   caseResults: { en: 'Results', es: 'Resultados' } as Localized,
   caseStack: { en: 'Stack', es: 'Stack' } as Localized,
+  demoStartersLabel: { en: 'Try asking:', es: 'Probá preguntar:' } as Localized,
   demoInputPlaceholder: { en: 'Ask a question…', es: 'Hacé una pregunta…' } as Localized,
   demoRemaining: { en: 'messages left', es: 'mensajes restantes' } as Localized,
   demoSending: { en: 'Thinking…', es: 'Pensando…' } as Localized,
@@ -86,6 +87,48 @@ export const ui = {
   certifications: { en: 'Certifications', es: 'Certificaciones' } as Localized,
   coursework: { en: 'Coursework', es: 'Contenidos' } as Localized,
   footerRights: { en: 'All rights reserved.', es: 'Todos los derechos reservados.' } as Localized,
+}
+
+export const demoStarters: Record<DemoProjectId, Localized[]> = {
+  'car-marketplace': [
+    {
+      en: 'I need a family SUV under $22,000 — what do you have?',
+      es: 'Necesito una SUV familiar por menos de USD 22.000 — ¿qué tenés?',
+    },
+    {
+      en: "What's the cheapest car with a backup camera?",
+      es: '¿Cuál es el auto más barato con cámara de retroceso?',
+    },
+    {
+      en: 'Low mileage and Bluetooth, budget around $13,000',
+      es: 'Poco kilometraje y Bluetooth, presupuesto de unos USD 13.000',
+    },
+  ],
+  'logistics-analytics': [
+    {
+      en: 'Show me all the late deliveries from last month',
+      es: 'Mostrame todas las entregas demoradas del mes pasado',
+    },
+    {
+      en: 'Which carrier had the best on-time rate in June?',
+      es: '¿Qué transportista tuvo la mejor tasa de puntualidad en junio?',
+    },
+    {
+      en: 'How is provider P-02 performing?',
+      es: '¿Cómo viene el desempeño del proveedor P-02?',
+    },
+  ],
+}
+
+export const demoUnderTheHood: Record<DemoProjectId, Localized> = {
+  'car-marketplace': {
+    en: 'LLM concierge · grounded in a fixed demo catalog · message-capped',
+    es: 'Concierge con LLM · limitado a un catálogo demo fijo · mensajes limitados',
+  },
+  'logistics-analytics': {
+    en: 'Data-grounded answers · permission-scoped SQL shown per query · message-capped',
+    es: 'Respuestas basadas en datos · SQL con permisos visible por consulta · mensajes limitados',
+  },
 }
 
 export const hero = {

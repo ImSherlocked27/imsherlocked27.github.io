@@ -1,7 +1,7 @@
 import { useReducer, useState } from 'react'
 import type { FormEvent } from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { hero, ui } from '../data/content'
+import { demoStarters, demoUnderTheHood, hero, ui } from '../data/content'
 import type { DemoProjectId } from '../data/content'
 import { sendDemoMessage } from '../lib/demoApi'
 import { demoChatReducer, INITIAL_DEMO_CHAT_STATE } from '../lib/demoChatReducer'
@@ -18,9 +18,7 @@ export function ProjectDemoChat({ projectId }: ProjectDemoChatProps) {
   const isSending = state.status === 'sending'
   const isDone = state.status === 'capped' || state.status === 'daily-capped'
 
-  async function handleSubmit(event: FormEvent) {
-    event.preventDefault()
-    const content = input.trim()
+  async function submitMessage(content: string) {
     if (!content || isSending || isDone) return
 
     const historyForRequest = [...state.messages, { role: 'user' as const, content }]
@@ -39,8 +37,30 @@ export function ProjectDemoChat({ projectId }: ProjectDemoChatProps) {
     }
   }
 
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault()
+    void submitMessage(input.trim())
+  }
+
+  const showStarters = state.messages.length === 0 && !isSending && !isDone
+
   return (
     <div className="project-demo">
+      {showStarters && (
+        <div className="project-demo__starters">
+          <p className="project-demo__starters-label">{ui.demoStartersLabel[language]}</p>
+          {demoStarters[projectId].map((starter) => (
+            <button
+              key={starter.en}
+              type="button"
+              className="project-demo__starter"
+              onClick={() => void submitMessage(starter[language])}
+            >
+              {starter[language]}
+            </button>
+          ))}
+        </div>
+      )}
       <div className="project-demo__messages">
         {state.messages.map((message, index) => (
           <p key={index} className={`project-demo__bubble project-demo__bubble--${message.role}`}>
@@ -85,6 +105,8 @@ export function ProjectDemoChat({ projectId }: ProjectDemoChatProps) {
           {state.remaining} {ui.demoRemaining[language]}
         </p>
       )}
+
+      <p className="project-demo__hood">{demoUnderTheHood[projectId][language]}</p>
     </div>
   )
 }
