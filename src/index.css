@@ -596,6 +596,38 @@ ul, ol {
   align-items: flex-start;
 }
 
+/* How I work */
+
+.how-i-work {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.how-i-work__item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.how-i-work__item h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.how-i-work__item h3::before {
+  content: '> ';
+  color: var(--accent-dim);
+}
+
+.how-i-work__item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 /* Education */
 
 .education {

@@ -80,6 +80,7 @@ export const ui = {
     education: { en: 'Education', es: 'Educación' } as Localized,
     contact: { en: 'Contact', es: 'Contacto' } as Localized,
   },
+  howIWork: { en: 'How I work', es: 'Cómo trabajo' } as Localized,
   downloadCv: { en: 'Download CV', es: 'Descargar CV' } as Localized,
   tryDemo: { en: 'Try it live', es: 'Probar en vivo' } as Localized,
   readCaseStudy: { en: 'Read case study', es: 'Leer caso de estudio' } as Localized,
@@ -103,6 +104,35 @@ export const ui = {
   coursework: { en: 'Coursework', es: 'Contenidos' } as Localized,
   footerRights: { en: 'All rights reserved.', es: 'Todos los derechos reservados.' } as Localized,
 }
+
+export interface HowIWorkItem {
+  title: Localized
+  body: Localized
+}
+
+export const howIWork: HowIWorkItem[] = [
+  {
+    title: { en: 'Eval-first development', es: 'Desarrollo eval-first' },
+    body: {
+      en: "Agent behavior is a test suite, not a vibe. Before a change ships, it runs against evaluation scenarios that encode what 'good' looks like — that's how the marketplace concierge evolves without breaking what already works.",
+      es: 'El comportamiento de un agente es una suite de tests, no una sensación. Antes de que un cambio salga, corre contra escenarios de evaluación que codifican qué significa "bien" — así el concierge del marketplace evoluciona sin romper lo que ya funciona.',
+    },
+  },
+  {
+    title: { en: 'Observability by default', es: 'Observabilidad por defecto' },
+    body: {
+      en: "I don't optimize what I can't see. Measurement comes before the fix — that's how 'the agent feels slow' became a stage-by-stage benchmark, one duplicate tool call, and a 51.8% latency cut that can't silently regress.",
+      es: 'No optimizo lo que no puedo ver. La medición viene antes que el fix — así "el agente se siente lento" se convirtió en un benchmark etapa por etapa, una llamada duplicada, y una mejora de latencia del 51,8% que no puede regresar en silencio.',
+    },
+  },
+  {
+    title: { en: 'Cost & latency budgets', es: 'Presupuestos de costo y latencia' },
+    body: {
+      en: 'LLM features get budgets like any other resource: token spend, latency targets, capped demos. Treating cost as a design input — not an afterthought — is what made a 30%+ inference cost reduction possible.',
+      es: 'Las features con LLMs tienen presupuestos como cualquier otro recurso: gasto de tokens, objetivos de latencia, demos con límite. Tratar el costo como una decisión de diseño — no como una idea tardía — es lo que hizo posible reducir más de un 30% el costo de inferencia.',
+    },
+  },
+]
 
 export const demoStarters: Record<DemoProjectId, Localized[]> = {
   'car-marketplace': [
