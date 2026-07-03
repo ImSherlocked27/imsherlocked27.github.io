@@ -38,7 +38,11 @@ export function Hero() {
         >
           GitHub
         </a>
-        <a className="button" href="/resume.pdf" download>
+        <a
+          className="button"
+          href={language === 'es' ? '/CV_Jeremias_Davila_ES.pdf' : '/CV_Jeremias_Davila_EN.pdf'}
+          download
+        >
           {ui.downloadCv[language]}
         </a>
       </div>
