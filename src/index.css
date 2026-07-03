@@ -628,6 +628,78 @@ ul, ol {
   color: var(--text-muted);
 }
 
+/* Notes */
+
+.notes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.note-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.note-card h3 {
+  font-size: 1.05rem;
+  margin: 0.5rem 0;
+}
+
+.note-card > p {
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.note-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.note-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+
+.note-card__date {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.note-card .button {
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.note-card__body {
+  margin-top: 1rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.note-card__body p {
+  color: var(--text);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
 /* Education */
 
 .education {

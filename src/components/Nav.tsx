@@ -3,6 +3,7 @@ import { ui } from '../data/content'
 
 const links = [
   { id: 'projects', label: ui.nav.projects },
+  { id: 'notes', label: ui.nav.notes },
   { id: 'experience', label: ui.nav.experience },
   { id: 'skills', label: ui.nav.skills },
   { id: 'education', label: ui.nav.education },

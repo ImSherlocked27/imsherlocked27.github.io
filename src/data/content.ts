@@ -72,11 +72,22 @@ export interface ProjectEntry {
   caseStudy?: CaseStudy
 }
 
+export interface NoteEntry {
+  title: Localized
+  tag: Localized
+  date: Localized
+  /** ISO-ish year-month for sort order; not rendered. */
+  sortDate: string
+  teaser: Localized
+  body: Localized[]
+}
+
 export const ui = {
   nav: {
     experience: { en: 'Experience', es: 'Experiencia' } as Localized,
     skills: { en: 'Skills', es: 'Habilidades' } as Localized,
     projects: { en: 'Projects', es: 'Proyectos' } as Localized,
+    notes: { en: 'Notes', es: 'Notas' } as Localized,
     education: { en: 'Education', es: 'Educación' } as Localized,
     contact: { en: 'Contact', es: 'Contacto' } as Localized,
   },
@@ -85,6 +96,8 @@ export const ui = {
   tryDemo: { en: 'Try it live', es: 'Probar en vivo' } as Localized,
   readCaseStudy: { en: 'Read case study', es: 'Leer caso de estudio' } as Localized,
   hideCaseStudy: { en: 'Hide case study', es: 'Ocultar caso de estudio' } as Localized,
+  readNote: { en: 'Read note', es: 'Leer nota' } as Localized,
+  hideNote: { en: 'Hide note', es: 'Ocultar nota' } as Localized,
   caseProblem: { en: 'Problem', es: 'Problema' } as Localized,
   caseApproach: { en: 'What I built', es: 'Qué construí' } as Localized,
   caseResults: { en: 'Results', es: 'Resultados' } as Localized,
@@ -529,5 +542,105 @@ export const projects: ProjectEntry[] = [
       en: 'A hyper-local platform connecting residents, businesses, and community organizations — local ads, neighborhood news, and staff-moderated content, with AI-powered moderation and listing generation as a natural next step.',
       es: 'Una plataforma hiperlocal que conecta vecinos, comercios y organizaciones comunitarias — anuncios locales, noticias de barrio y contenido moderado por el equipo, con moderación y generación de publicaciones por IA como un paso natural a futuro.',
     },
+  },
+]
+
+export const notes: NoteEntry[] = [
+  {
+    title: {
+      en: 'Why Agent Behavior Should Be a Test Suite, Not a Vibe',
+      es: 'Por Qué el Comportamiento de un Agente Debería Ser una Suite de Tests, No una Sensación',
+    },
+    tag: { en: 'Practice notes', es: 'Notas de práctica' },
+    date: { en: 'March 2026', es: 'Marzo 2026' },
+    sortDate: '2026-03',
+    teaser: {
+      en: "Before a change to the marketplace concierge ships, it has to survive a battery of scenarios that encode what 'good' looks like. Here's why that discipline matters more than it sounds.",
+      es: "Antes de que un cambio al concierge del marketplace salga a producción, tiene que sobrevivir una batería de escenarios que codifican qué significa 'bien'. Por qué esa disciplina importa más de lo que parece.",
+    },
+    body: [
+      {
+        en: "Every LLM feature I've shipped started the same way someone described it to me casually: 'the agent should be helpful and not say anything weird.' That's not a spec, it's a vibe. Vibes don't survive contact with a second engineer touching the prompt, a model version bump, or six months of feature creep. Something has to encode what 'good' actually means, in a form a computer can check.",
+        es: "Cada funcionalidad con LLM que lancé empezó de la misma forma en la que alguien me la describió casualmente: 'que el agente sea útil y no diga nada raro'. Eso no es una especificación, es una sensación. Las sensaciones no sobreviven cuando un segundo ingeniero toca el prompt, cuando cambia la versión del modelo, o después de seis meses de features acumuladas. Algo tiene que codificar qué significa 'bien' de verdad, en una forma que una computadora pueda chequear.",
+      },
+      {
+        en: 'For the marketplace concierge, that something is an evaluation suite: **20+ scenarios**, each one a realistic conversation with an expected shape of answer — the right kind of car surfaced, the right refusal when a request falls outside scope, the right tone when the inventory has nothing close to what someone asked for. None of it is about grading English fluency. It’s about behavior: did the agent do the right thing, not just say plausible words.',
+        es: 'Para el concierge del marketplace, ese algo es una suite de evaluación: **más de 20 escenarios**, cada uno una conversación realista con una forma esperada de respuesta — el tipo de auto correcto, el rechazo correcto cuando un pedido está fuera de alcance, el tono correcto cuando el inventario no tiene nada parecido a lo que alguien pidió. No se trata de calificar fluidez en el idioma. Se trata de comportamiento: si el agente hizo lo correcto, no solo si dijo palabras creíbles.',
+      },
+      {
+        en: "The payoff shows up before deploy, not after a user complaint. A prompt tweak that looks harmless in a diff can silently break behavior three scenarios away from the one you were thinking about — the suite catches that in minutes instead of a support ticket catching it in a week. It's the same habit of measuring before trusting that later turned 'the agent feels slow' into a stage-by-stage benchmark and a fix I could actually prove worked (more on that one in the case studies above).",
+        es: "El resultado se nota antes del deploy, no después de la queja de un usuario. Un ajuste de prompt que parece inofensivo en un diff puede romper el comportamiento en silencio, tres escenarios lejos del que tenías en mente — la suite lo detecta en minutos, en vez de que lo detecte un ticket de soporte una semana después. Es el mismo hábito de medir antes de confiar que después convirtió 'el agente se siente lento' en un benchmark etapa por etapa y un fix que pude demostrar que funcionaba (más sobre eso en los casos de estudio de arriba).",
+      },
+      {
+        en: "None of this requires exotic tooling. It requires deciding, up front, what 'correct' looks like for your feature — and refusing to ship a change that can't answer that question.",
+        es: "Nada de esto requiere herramientas exóticas. Requiere decidir, de antemano, cómo se ve 'correcto' para tu funcionalidad — y negarte a lanzar un cambio que no pueda responder esa pregunta.",
+      },
+    ],
+  },
+  {
+    title: {
+      en: 'Token Spend Is a Design Decision, Not a Bill You Check Later',
+      es: 'El Gasto de Tokens Es una Decisión de Diseño, No una Factura que Revisás Después',
+    },
+    tag: { en: 'Practice notes', es: 'Notas de práctica' },
+    date: { en: 'May 2026', es: 'Mayo 2026' },
+    sortDate: '2026-05',
+    teaser: {
+      en: "Every LLM feature has a cost curve hiding inside it. I've learned to draw that curve before writing the first prompt — not after finance asks why the bill tripled.",
+      es: 'Toda funcionalidad con LLM tiene una curva de costos escondida adentro. Aprendí a dibujar esa curva antes de escribir el primer prompt — no después de que finanzas pregunte por qué se triplicó la factura.',
+    },
+    body: [
+      {
+        en: "It's easy to treat LLM cost as an operations problem — something you fix later with caching or a cheaper model once the bill looks bad. I stopped doing that. Token spend and latency are resources like any other, and resources need a budget set before the design is finalized, not audited after launch.",
+        es: 'Es fácil tratar el costo de LLM como un problema de operaciones — algo que arreglás después con caché o un modelo más barato cuando la factura se ve mal. Dejé de hacer eso. El gasto de tokens y la latencia son recursos como cualquier otro, y los recursos necesitan un presupuesto definido antes de cerrar el diseño, no auditado después del lanzamiento.',
+      },
+      {
+        en: 'In practice that means asking, for every new prompt: how many tokens does this cost per turn, at what latency, and does the answer still make sense if usage is 10x what I’m imagining? Concretely: trimming context to only what the turn actually needs instead of dumping the whole conversation history into every call, caching anything that doesn’t change turn to turn, picking the smallest model that clears the eval bar instead of defaulting to the biggest one, and — for anything public-facing, like a live demo — capping the number of turns a session gets, so a runaway conversation can’t run away with the budget.',
+        es: 'En la práctica eso significa preguntar, para cada prompt nuevo: ¿cuántos tokens cuesta esto por turno, a qué latencia, y la respuesta sigue teniendo sentido si el uso es 10 veces lo que estoy imaginando? En concreto: recortar el contexto a lo que el turno realmente necesita en vez de mandar todo el historial de la conversación en cada llamada, cachear todo lo que no cambia de turno a turno, elegir el modelo más chico que pase la vara de evaluación en vez de arrancar con el más grande, y — para todo lo que da al público, como una demo en vivo — limitar la cantidad de turnos que tiene una sesión, para que una conversación descontrolada no se lleve puesto el presupuesto.',
+      },
+      {
+        en: 'That last one shows up directly on this site: the live demos above are message-capped on purpose, not as a limitation I apologize for, but as the same budget discipline applied to a public-facing surface. Applied consistently across a real product, this kind of thinking is what took inference cost down **30%+** without touching output quality — because the budget was a design input, not a cleanup pass.',
+        es: 'Ese último punto se ve directamente en este sitio: las demos en vivo de arriba tienen un límite de mensajes a propósito, no como una limitación de la que me disculpo, sino como la misma disciplina de presupuesto aplicada a una superficie pública. Aplicado de forma consistente en un producto real, este tipo de pensamiento fue lo que bajó el costo de inferencia **más de un 30%** sin tocar la calidad de las respuestas — porque el presupuesto fue una decisión de diseño, no una limpieza posterior.',
+      },
+    ],
+  },
+  {
+    title: {
+      en: 'A Practical Guardrails Checklist for Production LLM Agents',
+      es: 'Una Checklist Práctica de Guardrails para Agentes LLM en Producción',
+    },
+    tag: { en: 'Guide', es: 'Guía' },
+    date: { en: 'July 2026', es: 'Julio 2026' },
+    sortDate: '2026-07',
+    teaser: {
+      en: "Guardrails aren't a prompt that says 'please don't.' Here's the checklist I run through before any LLM agent touches something that costs money, exposes data, or takes an action a human can't easily undo.",
+      es: "Los guardrails no son un prompt que dice 'por favor, no'. Esta es la checklist que uso antes de que cualquier agente LLM toque algo que cueste dinero, exponga datos, o tome una acción que un humano no pueda deshacer fácilmente.",
+    },
+    body: [
+      {
+        en: "This is the checklist I actually use, not a theoretical one. It's vendor-neutral — it applies whether you're calling GPT, Claude, or something open-weight, because the failure modes it guards against live in your system, not in the model.",
+        es: 'Esta es la checklist que realmente uso, no una teórica. Es neutral respecto al proveedor — aplica ya sea que uses GPT, Claude, o algo open-weight, porque los modos de falla de los que se cuida viven en tu sistema, no en el modelo.',
+      },
+      {
+        en: "**Scope the input before the model sees it.** Don't rely on a system prompt to enforce what a user or an upstream system is allowed to ask for — filter and scope at the data layer, so the model is architecturally incapable of reaching something it shouldn't, not just instructed not to reach it.",
+        es: '**Limitá el input antes de que el modelo lo vea.** No dependas de un system prompt para hacer cumplir qué puede pedir un usuario o un sistema upstream — filtrá y limitá en la capa de datos, para que el modelo sea arquitectónicamente incapaz de alcanzar algo que no debería, no solo que se le haya indicado que no lo alcance.',
+      },
+      {
+        en: "**Never trust raw model output for anything involving money, permissions, or irreversible actions.** Treat generated text the way you'd treat input from an untrusted client: validate structure, validate values against real constraints, and require a second, non-LLM check before anything executes.",
+        es: '**Nunca confíes en el output crudo del modelo para nada que involucre dinero, permisos, o acciones irreversibles.** Tratá el texto generado como tratarías el input de un cliente no confiable: validá la estructura, validá los valores contra restricciones reales, y exigí una segunda verificación, que no sea del LLM, antes de que se ejecute cualquier cosa.',
+      },
+      {
+        en: "**Fail loud, not quiet.** A guardrail that silently rewrites a bad output into a plausible-looking one is worse than no guardrail — it hides the failure instead of surfacing it. When a check fails, the system should say so, log it, and — for anything user-facing — degrade to a clear fallback instead of a confident wrong answer.",
+        es: '**Fallá fuerte, no en silencio.** Un guardrail que reescribe en silencio un output malo por uno que parece plausible es peor que no tener guardrail — esconde la falla en vez de mostrarla. Cuando un chequeo falla, el sistema tiene que decirlo, registrarlo, y — para todo lo que ve el usuario — degradar a un fallback claro en vez de una respuesta segura pero equivocada.',
+      },
+      {
+        en: "**Put cost and rate limits on the same footing as correctness limits.** A guardrail isn't only 'don't say the wrong thing' — it's also 'don't let one conversation trigger unbounded tool calls or unbounded spend.' Cap turns, cap tool calls per turn, cap total tokens per session, and make those caps visible in logs, not just enforced silently.",
+        es: "**Poné los límites de costo y de tasa al mismo nivel que los límites de corrección.** Un guardrail no es solo 'no digas lo incorrecto' — también es 'no dejes que una sola conversación dispare llamadas a herramientas sin límite o gasto sin límite'. Limitá los turnos, limitá las llamadas a herramientas por turno, limitá los tokens totales por sesión, y hacé esos límites visibles en los logs, no solo aplicados en silencio.",
+      },
+      {
+        en: "**Test the guardrails, not just the happy path.** The same eval-suite discipline that catches behavior regressions should include scenarios designed to trip every guardrail on purpose — if a guardrail has never failed a test, you don't actually know it works.",
+        es: '**Testeá los guardrails, no solo el camino feliz.** La misma disciplina de suite de evaluación que detecta regresiones de comportamiento debería incluir escenarios diseñados para hacer saltar cada guardrail a propósito — si un guardrail nunca falló un test, en realidad no sabés si funciona.',
+      },
+    ],
   },
 ]

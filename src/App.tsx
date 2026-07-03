@@ -5,6 +5,7 @@ import { Experience } from './components/Experience'
 import { Skills } from './components/Skills'
 import { Projects } from './components/Projects'
 import { HowIWork } from './components/HowIWork'
+import { Notes } from './components/Notes'
 import { Education } from './components/Education'
 import { Footer } from './components/Footer'
 
@@ -16,6 +17,7 @@ function App() {
         <Hero />
         <Projects />
         <HowIWork />
+        <Notes />
         <Experience />
         <Skills />
         <Education />
